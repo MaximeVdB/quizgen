@@ -92,6 +92,34 @@ beginning of the first problem.</div>
 		<hr/>
 		<div>
 			<div class="description">
+This is the first problem in the problem group with some LaTeX: $a_3$.</div>
+			<ol type="a">
+				<li class="choice">
+					<div class="selection">This is an option. </div>
+					<div class="response wrong">
+						<span class="wrong">Incorrect. </span>
+						 You can add an explanation for an option after the double colon to explain why it is correct/incorrect.
+					</div>
+				</li>
+				<li class="choice">
+					<div class="selection">This is another option. Observe that explanations are optional.</div>
+					<div class="response wrong">
+						<span class="wrong">Incorrect. </span>
+						
+					</div>
+				</li>
+				<li class="choice">
+					<div class="selection">This option is the correct option since it is marked with an equal to sign.</div>
+					<div class="response right">
+						<span class="right">Correct! </span>
+						
+					</div>
+				</li>
+			</ol>
+		</div>
+		<hr/>
+		<div>
+			<div class="description">
 Again, a blank line marks the end of the options. Here's another problem in
 this problem group with more inline latex $c$ and $d$.
 Quizgen supports displayed equations as well:
@@ -118,38 +146,17 @@ x=Zy + a - c.
 		<hr/>
 		<div>
 			<div class="description">
-This is the first problem in the problem group with some LaTeX: $a_3$.</div>
-			<ol type="a">
-				<li class="choice">
-					<div class="selection">This is another option. Observe that explanations are optional.</div>
-					<div class="response wrong">
-						<span class="wrong">Incorrect. </span>
-						
-					</div>
-				</li>
-				<li class="choice">
-					<div class="selection">This option is the correct option since it is marked with an equal to sign.</div>
-					<div class="response right">
-						<span class="right">Correct! </span>
-						
-					</div>
-				</li>
-				<li class="choice">
-					<div class="selection">This is an option. </div>
-					<div class="response wrong">
-						<span class="wrong">Incorrect. </span>
-						 You can add an explanation for an option after the double colon to explain why it is correct/incorrect.
-					</div>
-				</li>
-			</ol>
-		</div>
-		<hr/>
-		<div>
-			<div class="description">
 You can also have problems with multiple correct responses.
 Students will be asked to select all that apply, and then submit their
 responses.</div>
 			<div class="mcq">
+				<label>
+					<input type="checkbox"/>
+					<span class="multiple-selection">Option 1. </span>
+					<span class="correct-checkbox">✓</span>
+					<span class="incorrect-checkbox">✗</span>
+					<div class="response right">This option is correct.  This is an explanation.</div>
+				</label>
 				<label>
 					<input type="checkbox"/>
 					<span class="multiple-selection">Option 2.</span>
@@ -171,13 +178,6 @@ responses.</div>
 					<span class="incorrect-checkbox">✗</span>
 					<div class="response right">This option is correct. </div>
 				</label>
-				<label>
-					<input type="checkbox"/>
-					<span class="multiple-selection">Option 1. </span>
-					<span class="correct-checkbox">✓</span>
-					<span class="incorrect-checkbox">✗</span>
-					<div class="response right">This option is correct.  This is an explanation.</div>
-				</label>
 				<button>Submit</button>
 			</div>
 		</div>
@@ -189,17 +189,17 @@ responses.</div>
 This problem group has no title and has no introduction. When the text following the start of a new problem group is immediately followed by the options, it is inferred to be a problem.</div>
 			<ol type="a">
 				<li class="choice">
-					<div class="selection">No. </div>
-					<div class="response wrong">
-						<span class="wrong">Incorrect. </span>
-						 Please email me and I'll try to help!
-					</div>
-				</li>
-				<li class="choice">
 					<div class="selection">Yes I understand. </div>
 					<div class="response right">
 						<span class="right">Correct! </span>
 						 Great! Here's some latex $\|a + b + c\|.$
+					</div>
+				</li>
+				<li class="choice">
+					<div class="selection">No. </div>
+					<div class="response wrong">
+						<span class="wrong">Incorrect. </span>
+						 Please email me and I'll try to help!
 					</div>
 				</li>
 			</ol>

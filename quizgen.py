@@ -38,11 +38,14 @@ Parse the Quiz to create a python dict
 
 class QuizParser():
   """Parses the quiz and returns it in a python dict"""
-  def __init__(self, filename):
+  def __init__(self, filename, shuffle_questions=False, shuffle_options=False):
     if '.quiz' in filename:
       self.filename = filename
     else:
       self.filename = '%s.quiz' % filename
+
+    self.shuffle_questions = shuffle_questions
+    self.shuffle_options = shuffle_options
 
 
   def get_filename(self):
@@ -202,10 +205,14 @@ class QuizParser():
           quiz['problem_groups'][-1]['questions'].append(question)
         except:
           raise Exception('ERROR. Are you sure you started every problem group with "[]"?')
+
     for pg in quiz["problem_groups"]:
+      if self.shuffle_questions:
         random.shuffle(pg["questions"])
-        for ql in pg["questions"]:
-            random.shuffle(ql["options"])
+      for ql in pg["questions"]:
+        if self.shuffle_options:
+          random.shuffle(ql["options"])
+
     return quiz
 
 
@@ -520,6 +527,11 @@ def main():
                help='Print a description on how to use QuizGen')
   p.add_option('-c', '--create_sample', action="store_true", default=False,
                help='Create a sample input file "sample.quiz" and exit')
+  p.add_option('--shuffle_questions', action="store_true", default=False,
+               help='Turns on random shuffling of the questions')
+  p.add_option('--shuffle_options', action="store_true", default=False,
+               help='Turns on random shuffling of the options'
+                    ' (the possible answers of a question)')
   opt, args = p.parse_args()
 
   if opt.usage:
@@ -528,7 +540,9 @@ def main():
     create_sample()
   else:
     for filename in args:
-      quiz_parser = QuizParser(filename)
+      quiz_parser = QuizParser(filename,
+                               shuffle_questions=opt.shuffle_questions,
+                               shuffle_options=opt.shuffle_options)
 
       quiz = quiz_parser.parse()
 
