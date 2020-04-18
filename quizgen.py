@@ -438,6 +438,8 @@ def add_dom_to_template(dom, html_file_name, quiz):
   content = re.sub('\|\|CODE:(\S+):\s?(.*?)\|\|', r'<pre><code class="\1">\2</pre></code>', content,
                    flags=re.DOTALL)
 
+  # For line breaks
+  content = re.sub('\|\|NEWLINE\|\|', r'<br>', content)
 
   generated_file.write(content)
   generated_file.close()
@@ -532,7 +534,9 @@ def main():
 
 SAMPLE = """== Sample Quiz Title
 [Problem Group 1 Title]
-This is the statement for problem group one.
+This is the statement for problem group one.||NEWLINE||
+||NEWLINE||
+# The ||NEWLINE|| directive will insert a line break.
 # Lines starting with "#" will be treated as comments
 # and will not be included in the HTML file.
 You can add a link to websites like this: ||LINK: http://www.google.com||.

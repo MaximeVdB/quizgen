@@ -1,6 +1,8 @@
 == Sample Quiz Title
 [Problem Group 1 Title]
-This is the statement for problem group one.
+This is the statement for problem group one.||NEWLINE||
+||NEWLINE||
+# The ||NEWLINE|| directive will insert a line break.
 # Lines starting with "#" will be treated as comments
 # and will not be included in the HTML file.
 You can add a link to websites like this: ||LINK: http://www.google.com||.
