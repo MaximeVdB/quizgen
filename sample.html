@@ -64,6 +64,7 @@
 
 <body>
   $\newcommand{\ones}{\mathbf 1}$
+  
   <div>
 	<h1>Sample Quiz Title</h1>
 	<fieldset>
@@ -93,17 +94,17 @@ beginning of the first problem.</div>
 This is the first problem in the problem group with some LaTeX: $a_3$.</div>
 			<ol type="a">
 				<li class="choice">
-					<div class="selection">This is an option. </div>
-					<div class="response wrong">
-						<span class="wrong">Incorrect. </span>
-						 You can add an explanation for an option after the double colon to explain why it is correct/incorrect.
-					</div>
-				</li>
-				<li class="choice">
 					<div class="selection">This is another option. Observe that explanations are optional.</div>
 					<div class="response wrong">
 						<span class="wrong">Incorrect. </span>
 						
+					</div>
+				</li>
+				<li class="choice">
+					<div class="selection">This is an option. </div>
+					<div class="response wrong">
+						<span class="wrong">Incorrect. </span>
+						 You can add an explanation for an option after the double colon to explain why it is correct/incorrect.
 					</div>
 				</li>
 				<li class="choice">
@@ -114,6 +115,44 @@ This is the first problem in the problem group with some LaTeX: $a_3$.</div>
 					</div>
 				</li>
 			</ol>
+		</div>
+		<hr/>
+		<div>
+			<div class="description">
+You can also have problems with multiple correct responses.
+Students will be asked to select all that apply, and then submit their
+responses.</div>
+			<div class="mcq">
+				<label>
+					<input type="checkbox"/>
+					<span class="multiple-selection">Option 2.</span>
+					<span class="correct-checkbox">✓</span>
+					<span class="incorrect-checkbox">✗</span>
+					<div class="response wrong">This option is incorrect. </div>
+				</label>
+				<label>
+					<input type="checkbox"/>
+					<span class="multiple-selection">Option 3.</span>
+					<span class="correct-checkbox">✓</span>
+					<span class="incorrect-checkbox">✗</span>
+					<div class="response wrong">This option is incorrect. </div>
+				</label>
+				<label>
+					<input type="checkbox"/>
+					<span class="multiple-selection">Option 1. </span>
+					<span class="correct-checkbox">✓</span>
+					<span class="incorrect-checkbox">✗</span>
+					<div class="response right">This option is correct.  This is an explanation.</div>
+				</label>
+				<label>
+					<input type="checkbox"/>
+					<span class="multiple-selection">Option 4.</span>
+					<span class="correct-checkbox">✓</span>
+					<span class="incorrect-checkbox">✗</span>
+					<div class="response right">This option is correct. </div>
+				</label>
+				<button>Submit</button>
+			</div>
 		</div>
 		<hr/>
 		<div>
@@ -140,44 +179,6 @@ x=Zy + a - c.
 					</div>
 				</li>
 			</ol>
-		</div>
-		<hr/>
-		<div>
-			<div class="description">
-You can also have problems with multiple correct responses.
-Students will be asked to select all that apply, and then submit their
-responses.</div>
-			<div class="mcq">
-				<label>
-					<input type="checkbox"/>
-					<span class="multiple-selection">Option 1. </span>
-					<span class="correct-checkbox">✓</span>
-					<span class="incorrect-checkbox">✗</span>
-					<div class="response right">This option is correct.  This is an explanation.</div>
-				</label>
-				<label>
-					<input type="checkbox"/>
-					<span class="multiple-selection">Option 2.</span>
-					<span class="correct-checkbox">✓</span>
-					<span class="incorrect-checkbox">✗</span>
-					<div class="response wrong">This option is incorrect. </div>
-				</label>
-				<label>
-					<input type="checkbox"/>
-					<span class="multiple-selection">Option 3.</span>
-					<span class="correct-checkbox">✓</span>
-					<span class="incorrect-checkbox">✗</span>
-					<div class="response wrong">This option is incorrect. </div>
-				</label>
-				<label>
-					<input type="checkbox"/>
-					<span class="multiple-selection">Option 4.</span>
-					<span class="correct-checkbox">✓</span>
-					<span class="incorrect-checkbox">✗</span>
-					<div class="response right">This option is correct. </div>
-				</label>
-				<button>Submit</button>
-			</div>
 		</div>
 	</fieldset>
 	<br/>
@@ -208,16 +209,16 @@ This problem group has no title and has no introduction. When the text following
 This is another problem in this problem group.</div>
 			<ol type="a">
 				<li class="choice">
-					<div class="selection">This is a great tutorial!</div>
-					<div class="response wrong">
-						<span class="wrong">Incorrect. </span>
+					<div class="selection">This tutorial can be improved. I'm going to email you with suggestions so you can do a better job.</div>
+					<div class="response right">
+						<span class="right">Correct! </span>
 						
 					</div>
 				</li>
 				<li class="choice">
-					<div class="selection">This tutorial can be improved. I'm going to email you with suggestions so you can do a better job.</div>
-					<div class="response right">
-						<span class="right">Correct! </span>
+					<div class="selection">This is a great tutorial!</div>
+					<div class="response wrong">
+						<span class="wrong">Incorrect. </span>
 						
 					</div>
 				</li>
