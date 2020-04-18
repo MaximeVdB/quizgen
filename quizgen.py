@@ -168,6 +168,7 @@ class QuizParser():
     lines = quizfile.readlines()
     lines = [line.strip() for line in lines]
     lines = self._make_backwards_compatible(lines)
+    lines = remove_comment_lines(lines)
 
     quiz = {
       'title': self._parse_title(lines),
@@ -205,6 +206,10 @@ class QuizParser():
         for ql in pg["questions"]:
             random.shuffle(ql["options"])
     return quiz
+
+
+def remove_comment_lines(lines, comment='#'):
+    return [line for line in lines if not line.startswith(comment)]
 
 
 def create_single_choice_dom_from_option(option):
@@ -528,6 +533,8 @@ def main():
 SAMPLE = """== Sample Quiz Title
 [Problem Group 1 Title]
 This is the statement for problem group one.
+# Lines starting with "#" will be treated as comments
+# and will not be included in the HTML file.
 You can add a link to websites like this: ||LINK: http://www.google.com||.
 You can add images like this:
 ||IMG:http://upload.wikimedia.org/wikipedia/commons/9/9b/Carl_Friedrich_Gauss.jpg||
