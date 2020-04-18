@@ -29,6 +29,7 @@ import sys
 import re
 import glob
 import itertools
+from optparse import OptionParser
 
 
 """
@@ -514,13 +515,19 @@ def get_footer():
   return footer
   
 def main():
-  # TODO: Stop being lazy and use optparse.
-  if len(sys.argv) < 2 or '-h' in sys.argv[1]:
+  p = OptionParser()
+  p.add_option('-u', '--usage', action="store_true", default=False,
+               help='Print a description on how to use QuizGen')
+  p.add_option('-c', '--create_sample', action="store_true", default=False,
+               help='Create a sample input file "sample.quiz" and exit')
+  opt, args = p.parse_args()
+
+  if opt.usage:
     usage()
-  elif '-c' in sys.argv[1]:
+  elif opt.create_sample:
     create_sample()
   else:
-    for filename in sys.argv[1:]:
+    for filename in args:
       quiz_parser = QuizParser(filename)
 
       quiz = quiz_parser.parse()
