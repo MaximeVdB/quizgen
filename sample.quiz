@@ -6,10 +6,14 @@ This is the statement for problem group one.||NEWLINE||
 # Lines starting with "#" will be treated as comments
 # and will not be included in the HTML file.
 You can add a link to websites like this: ||LINK: http://www.google.com||.
+#
 You can add images like this:
 ||IMG:http://upload.wikimedia.org/wikipedia/commons/9/9b/Carl_Friedrich_Gauss.jpg||
 The image source can either be a local path, or some web URL. Images can be embedded
 anywhere: within problem groups, problems or options.
+# You can have up to three images on the same row by separating them with
+# semicolons, e.g. ||IMG:http://url.com/1.jpg;IMG:http://url.com/2.jpg||
+#
 It also supports syntax highlighting like this:
 ||CODE:java:
 int a = 2;
