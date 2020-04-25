@@ -437,7 +437,14 @@ def add_dom_to_template(dom, html_file_name, quiz):
   content = content.replace('[FOOTER]', get_footer())
   
   # For the images
-  content = re.sub('\|\|IMG:\s?(\S+)\|\|', r'<div><img src="\1"></div>', content)
+  for i in range(3, 0, -1):
+    pattern = '\|\|' + ';'.join(['IMG:\s?(\S+)'] * i) + '\|\|'
+    repl = r'<div class="img-container">'
+    for j in range(i):
+      repl += '<img src="\\' + str(j + 1)
+      repl += r'" style="height: 100%; width: 33%; object-fit: contain; max-height: 300px">'
+    repl += r'</div>'
+    content = re.sub(pattern, repl, content)
 
   # For the links
   content = re.sub('\|\|LINK:\s?(\S+)\|\|', r'<a href="\1">\1</a>', content)
@@ -561,10 +568,14 @@ This is the statement for problem group one.||NEWLINE||
 # Lines starting with "#" will be treated as comments
 # and will not be included in the HTML file.
 You can add a link to websites like this: ||LINK: http://www.google.com||.
+#
 You can add images like this:
 ||IMG:http://upload.wikimedia.org/wikipedia/commons/9/9b/Carl_Friedrich_Gauss.jpg||
 The image source can either be a local path, or some web URL. Images can be embedded
 anywhere: within problem groups, problems or options.
+# You can have up to three images on the same row by separating them with
+# semicolons, e.g. ||IMG:http://url.com/1.jpg;IMG:http://url.com/2.jpg||
+#
 It also supports syntax highlighting like this:
 ||CODE:java:
 int a = 2;
@@ -703,17 +714,17 @@ body {
   font-size: 16px;
   position: relative;
   min-height: 100%;
-  width: 680px;
+  width: 1200px;
   background-color: rgb(250, 250, 250);
   color: #333;
 }
 
 img {
-  height: 400px;
+  height: 300px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 div .description {
@@ -827,6 +838,12 @@ button:hover{
 
 button:focus {
     outline: none;
+}
+
+.img-container img {
+  display: inline-block;
+  width: 0px;
+  height: 300px;
 }
 """
 
